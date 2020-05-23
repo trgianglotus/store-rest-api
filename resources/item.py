@@ -33,6 +33,7 @@ class Item(Resource):
             return {"message": "An item with name {} already exists".format(name)}, 400
         data = Item.parser.parse_args()
         item = ItemModel(**data)
+        print(data)
         try:
             item.save_to_db()
         except:
